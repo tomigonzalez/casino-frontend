@@ -4,6 +4,9 @@ import { BsGlobe } from "react-icons/bs";
 export const ContenedorMonedas = styled.header`
   height: 50px;
   display: flex;
+  @media (max-width: 700px) {
+    height: 30px;
+  }
 `;
 
 export const Select = styled.select`
@@ -19,6 +22,9 @@ export const Select = styled.select`
 
   &:focus {
     outline: none;
+  }
+  @media (max-width: 700px) {
+    font-size: 0.6rem;
   }
 `;
 
@@ -36,10 +42,19 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
+  @media (max-width: 700px) {
+    height: 20px;
+    max-width: 40%;
+    min-width: 40%;
+  }
 `;
 
 export const StyledIcon = styled(BsGlobe)`
   color: white;
   font-size: 1rem;
   align-self: center;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 `;

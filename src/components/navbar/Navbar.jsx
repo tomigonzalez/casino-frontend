@@ -4,17 +4,21 @@ import {
   LogoStyled,
   LinkContainerStyled,
   BiDownArrowIcon,
+  StyledQuery,
+  StyledQuery2,
 } from "./NavbarStyle";
 import { useNavigate } from "react-router-dom";
 import Monedas from "../monedas/Monedas";
 import * as userAction from "../../redux/user/user-action";
 import LinkContainer from "./linkcontainer/LinkContainer";
 import { useDispatch, useSelector } from "react-redux";
-import LinkContainerButton from "./linkcontainerbutton/LinkContainerButton";
+
 import Button from "../UI/button/Button";
 import ModalUser from "./modaluser/ModalUser";
 import Cart from "./cart/Cart";
 import ModalCart from "./modalcart/ModalCart";
+import MenuBurger from "./menuBurger/MenuBurger";
+import LinkContainerButton from "./linkcontainerbutton/LinkContainerButton";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -30,7 +34,14 @@ const Navbar = () => {
         <LogoStyled onClick={() => navigate("/")}>
           <img src="img/logo.png" alt="logo" />
         </LogoStyled>
-        <LinkContainer></LinkContainer>
+
+        <StyledQuery2>
+          <MenuBurger></MenuBurger>
+        </StyledQuery2>
+
+        <StyledQuery>
+          <LinkContainer></LinkContainer>
+        </StyledQuery>
 
         <LinkContainerStyled>
           <Monedas></Monedas>

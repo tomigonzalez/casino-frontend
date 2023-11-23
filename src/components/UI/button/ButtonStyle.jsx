@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 export const StyledButton = styled(motion.button)`
   cursor: pointer;
   border-radius: 20px;
-  height: 35px;
+  height: 100%;
   color: white;
   background: none;
   border: 2px solid #f15a59;
@@ -26,7 +26,7 @@ export const StyledButton = styled(motion.button)`
   ${({ width }) =>
     width &&
     css`
-      width: ${width}px;
+      width: ${width}%;
     `}
     ${({ invalid }) =>
     invalid &&

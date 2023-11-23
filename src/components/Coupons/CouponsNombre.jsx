@@ -1,7 +1,11 @@
 import React from "react";
-import { ContButton, CountentCoupons, ImgDeposito } from "./CouponsStyle";
+import {
+  ContButton,
+  CountentCoupons,
+  ImgDeposito,
+  Titles2,
+} from "./CouponsStyle";
 import Button from "../UI/button/Button";
-import Titles from "../UI/title/Titles";
 import { useSelector } from "react-redux";
 
 const CouponsNombre = ({ data, addToCart }) => {
@@ -12,7 +16,7 @@ const CouponsNombre = ({ data, addToCart }) => {
     <CountentCoupons>
       <ImgDeposito src={img} alt={category} />
       <ContButton>
-        <Titles>{category}</Titles>
+        <Titles2>{category}</Titles2>
         {!currentUser ? (
           <Button invalid="true" onClick={() => addToCart(id)}>
             DEPOSIT

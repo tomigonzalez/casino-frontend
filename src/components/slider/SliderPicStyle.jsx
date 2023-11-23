@@ -23,7 +23,7 @@ export const ContainerImg = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 400px;
+  height: 100%;
   position: relative;
 
   img {

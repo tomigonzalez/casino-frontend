@@ -18,6 +18,9 @@ export const LogoStyled = styled.div`
   cursor: pointer;
   & img {
   }
+  @media (max-width: 1400px) {
+    display: none;
+  }
 `;
 
 export const LinkContainerStyled = styled.div`
@@ -36,4 +39,16 @@ export const LinkContainerStyled = styled.div`
 export const BiDownArrowIcon = styled(BiDownArrow)`
   font-size: 80%;
   padding-left: 5px;
+`;
+
+export const StyledQuery = styled.div`
+  @media (max-width: 1400px) {
+    display: none;
+  }
+`;
+export const StyledQuery2 = styled.div`
+  display: none;
+  @media (max-width: 1400px) {
+    display: flex;
+  }
 `;

@@ -1,18 +1,19 @@
 import React from "react";
 import Button from "../../UI/button/Button";
-import { NavLink } from "react-router-dom";
+
+import { Contenedorss, StyledNavLink } from "./LinkContainerButtonStyled";
 
 const LinkContainerButton = () => {
   return (
-    <>
-      <Button width={150}>
-        <NavLink to="/register">REGISTER</NavLink>
+    <Contenedorss>
+      <Button width={100}>
+        <StyledNavLink to="/register">REGISTER</StyledNavLink>
       </Button>
 
-      <Button secondary="true" width={150}>
-        <NavLink to="/login">LOGIN</NavLink>
+      <Button secondary="true" width={100}>
+        <StyledNavLink to="/login">LOGIN</StyledNavLink>
       </Button>
-    </>
+    </Contenedorss>
   );
 };
 

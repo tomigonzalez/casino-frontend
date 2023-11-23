@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ContGeneral, ContenedorCoupons } from "./CouponsStyle";
 import { useDispatch, useSelector } from "react-redux";
 import CouponsNombre from "./CouponsNombre";
