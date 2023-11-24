@@ -20,7 +20,7 @@ import ModalCart from "./modalcart/ModalCart";
 import MenuBurger from "./menuBurger/MenuBurger";
 import LinkContainerButton from "./linkcontainerbutton/LinkContainerButton";
 
-const Navbar = () => {
+const Navbar = ({ isOpen, handleClick }) => {
   const navigate = useNavigate();
   const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const Navbar = () => {
         </LogoStyled>
 
         <StyledQuery2>
-          <MenuBurger></MenuBurger>
+          <MenuBurger isOpen={isOpen} handleClick={handleClick}></MenuBurger>
         </StyledQuery2>
 
         <StyledQuery>
@@ -61,7 +61,7 @@ const Navbar = () => {
               <BiDownArrowIcon />
             </Button>
           ) : (
-            <LinkContainerButton />
+            <LinkContainerButton isOpen={isOpen} handleClick={handleClick} />
           )}
         </LinkContainerStyled>
       </NavbarContainerStyled>

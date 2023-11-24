@@ -7,9 +7,9 @@ import Footer from "./components/footer/Footer";
 // import { onAuthStateChanged } from "firebase/auth";
 // import { auth, createUserProfileDocument } from "./firebase/firebase-utils";
 // import { onSnapshot } from "firebase/firestore";
-import * as userActions from "./redux/user/user-action";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+
+import ModalMenuBurger from "./components/navbar/modalMenuBurger/ModalMenuBurger";
+import { useState } from "react";
 
 // function onAuthStateChange(cb, action) {
 //   onAuthStateChanged(auth, async (userAuth) => {
@@ -32,10 +32,17 @@ function App() {
   // const unsuscribe = onAuthStateChange(dispatch, userActions.setCurrentUser);
   // return () => unsuscribe();
   // }, [dispatch]);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    console.log(isOpen);
+    setIsOpen(!isOpen);
+  };
   return (
     <>
       <Layout>
-        <Navbar />
+        <Navbar isOpen={isOpen} handleClick={handleClick} />
+        <ModalMenuBurger isOpen={isOpen} handleClick={handleClick} />
         <Routes />
         <Footer />
       </Layout>

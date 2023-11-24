@@ -1,18 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./MenuBurgerStyle.css";
 
-const MenuBurger = () => {
-  useEffect(() => {
-    const icons = document.querySelectorAll(".icon");
-    icons.forEach((icon) => {
-      icon.addEventListener("click", (event) => {
-        icon.classList.toggle("open");
-      });
-    });
-  }, []);
-
+const MenuBurger = ({ isOpen, handleClick }) => {
   return (
-    <div className="icon nav-icon-5">
+    <div
+      className={`icon nav-icon-5 ${isOpen ? "open" : ""}`}
+      onClick={handleClick}
+    >
       <span></span>
       <span></span>
       <span></span>
