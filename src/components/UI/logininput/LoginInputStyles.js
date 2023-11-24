@@ -17,7 +17,7 @@ export const LoginInputStyled = styled.input`
   border: ${({ isError }) => (isError ? "1px solid #fb103d " : "none")};
   outline: none;
   caret-color: white;
-
+  font-weight: 600;
   ::placeholder {
     opacity: 80%;
   }
@@ -26,7 +26,7 @@ export const LoginInputStyled = styled.input`
   :-webkit-autofill,
   :-webkit-autofill:hover,
   :-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px var(--gray-bg) inset;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(120, 124, 148, 1) inset;
   }
   @media (max-width: 700px) {
     width: 230px;
