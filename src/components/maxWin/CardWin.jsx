@@ -1,7 +1,7 @@
-import Button from "../UI/button/Button";
 import {
   CardId,
   CardImg,
+  CardImgContain,
   CardPrice,
   CardText,
   CardTitle,
@@ -11,7 +11,9 @@ import {
 const CardWin = ({ title, img, price, id }) => {
   return (
     <Cards key={id}>
-      <CardImg src={img} alt={title} />
+      <CardImgContain>
+        <CardImg src={img} alt={title} />
+      </CardImgContain>
       <CardText>
         <CardTitle>{title}</CardTitle>
         <CardId>ID {id}</CardId>
@@ -20,9 +22,6 @@ const CardWin = ({ title, img, price, id }) => {
           <p>WIN</p>
           {price}
         </CardPrice>
-        <Button width={70} secondary="true">
-          VIEW
-        </Button>
       </CardText>
     </Cards>
   );

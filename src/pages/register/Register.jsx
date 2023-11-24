@@ -57,7 +57,7 @@ const Register = () => {
           <LoginInput name="name" type="text" placeholder="Nombre" />
           <LoginInput name="email" type="text" placeholder="Email" />
           <LoginInput name="password" type="password" placeholder="Password" />
-          <p>O podés ingresar con</p>
+
           {/* <LoginButtonGoogleStyled type="button" onClick={signInWithGoogle}>
             <img
               src="https://res.cloudinary.com/dcatzxqqf/image/upload/v1656648432/coding/NucbaZappi/Assets/google-icon_jgdcr1.png"
