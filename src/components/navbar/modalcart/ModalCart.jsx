@@ -22,11 +22,8 @@ const ModalCart = () => {
   const dispatch = useDispatch();
   const { total } = useTotal();
   const currentUser = useSelector((state) => state.user.currentUser);
-
+  const confirmation = window.confirm("Seguro que queres realizar la compra ?");
   const handleAddToCartClick = async () => {
-    const confirmation = window.confirm(
-      "Seguro que queres realizar la compra ?"
-    );
     if (confirmation) {
       try {
         const authToken = localStorage.getItem("authToken");
