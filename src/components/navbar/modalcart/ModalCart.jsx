@@ -25,7 +25,9 @@ const ModalCart = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
 
   const confirmation = window.confirm("Seguro que queres realizar la compra ?");
-
+  useEffect(() => {
+    window.confirmation = null;
+  }, []);
   const handleAddToCartClick = async () => {
     if (confirmation) {
       try {
