@@ -15,7 +15,6 @@ import useTotal from "../../../hooks/useTotal";
 import { backendUrl } from "../../../apiConfig";
 import axios from "axios";
 import { setCurrentUser } from "../../../redux/user/user-action";
-import { useEffect } from "react";
 // import { auth, handleAddToCart } from "../../../firebase/firebase-utils";
 
 const ModalCart = () => {
@@ -25,42 +24,47 @@ const ModalCart = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
 
   const handleAddToCartClick = async () => {
-    try {
-      const authToken = localStorage.getItem("authToken");
-      // Realiza una solicitud al backend para comprar un cupón
-      const response = await axios.post(
-        `${backendUrl}/casino/comprar-cupon`,
-        {
-          couponValue:
-            total /* Valor del cupón seleccionado desde tu carrito */,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
+    const confirmation = window.confirm(
+      "Seguro que queres realizar la compra ?"
+    );
+    if (confirmation) {
+      try {
+        const authToken = localStorage.getItem("authToken");
+        // Realiza una solicitud al backend para comprar un cupón
+        const response = await axios.post(
+          `${backendUrl}/casino/comprar-cupon`,
+          {
+            couponValue:
+              total /* Valor del cupón seleccionado desde tu carrito */,
           },
-        }
-      );
-
-      // Maneja la respuesta del servidor
-      if (response.status === 200) {
-        // console.log("ASDASD: ", response.data.newBalance);
-        window.location.reload();
-        dispatch(
-          setCurrentUser({
-            ...currentUser,
-            usuario: {
-              ...currentUser.usuario,
-              balance: response.data.newBalance,
+          {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
             },
-          })
+          }
         );
 
-        dispatch(clearCart());
-      }
-    } catch (error) {
-      console.error("Error al comprar el cupón:", error.response);
+        // Maneja la respuesta del servidor
+        if (response.status === 200) {
+          // console.log("ASDASD: ", response.data.newBalance);
+          window.location.reload();
+          dispatch(
+            setCurrentUser({
+              ...currentUser,
+              usuario: {
+                ...currentUser.usuario,
+                balance: response.data.newBalance,
+              },
+            })
+          );
 
-      // Maneja el error de compra, muestra un mensaje de error si es necesario
+          dispatch(clearCart());
+        }
+      } catch (error) {
+        console.error("Error al comprar el cupón:", error.response);
+
+        // Maneja el error de compra, muestra un mensaje de error si es necesario
+      }
     }
   };
 
