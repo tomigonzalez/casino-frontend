@@ -25,7 +25,7 @@ const ModalCart = () => {
 
   const handleAddToCartClick = async () => {
     const confirmation = window.confirm(
-      "Seguro que queres realizar la compra ?"
+      "Seguro que quieres realizar la compra ?"
     );
     if (confirmation) {
       try {
