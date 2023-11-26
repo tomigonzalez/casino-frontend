@@ -15,6 +15,7 @@ import useTotal from "../../../hooks/useTotal";
 import { backendUrl } from "../../../apiConfig";
 import axios from "axios";
 import { setCurrentUser } from "../../../redux/user/user-action";
+import { useEffect } from "react";
 // import { auth, handleAddToCart } from "../../../firebase/firebase-utils";
 
 const ModalCart = () => {
@@ -22,7 +23,9 @@ const ModalCart = () => {
   const dispatch = useDispatch();
   const { total } = useTotal();
   const currentUser = useSelector((state) => state.user.currentUser);
+
   const confirmation = window.confirm("Seguro que queres realizar la compra ?");
+
   const handleAddToCartClick = async () => {
     if (confirmation) {
       try {
@@ -64,6 +67,9 @@ const ModalCart = () => {
       }
     }
   };
+  useEffect(() => {
+    window.confirmation = null;
+  }, []);
 
   return (
     <AnimatePresence>
